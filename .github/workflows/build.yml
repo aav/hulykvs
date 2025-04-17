@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           file: hulykvs_server/Dockerfile
-          push: ${{ github.event_name == 'push' }}
-          tags: ghcr.io/${{ github.repo }}/hulykvs1:latest
+          push: true
+          tags: "latest"
 
 
