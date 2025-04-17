@@ -5,6 +5,7 @@ on:
 
 jobs:
   build-and-push:
+    permissions: write-all
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +30,6 @@ jobs:
         with:
           file: hulykvs_server/Dockerfile
           push: ${{ github.event_name == 'push' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ghcr.io/{{ github.repo }}/hulykvs1:latest
 
 
