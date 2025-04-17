@@ -30,6 +30,6 @@ jobs:
         with:
           file: hulykvs_server/Dockerfile
           push: ${{ github.event_name == 'push' }}
-          tags: ghcr.io/{{ github.repo }}/hulykvs1:latest
+          tags: ghcr.io/${{ github.repo }}/hulykvs1:latest
 
 
