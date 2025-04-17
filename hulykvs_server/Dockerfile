@@ -2,7 +2,6 @@ FROM rust:1.86 AS builder
 WORKDIR /tmp/build
 COPY . .
 RUN cargo build --release
-RUN ls -l target/release
 
 FROM debian:12-slim
 LABEL org.opencontainers.image.source="https://github.com/aav/hulykvs"
