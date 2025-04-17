@@ -42,7 +42,7 @@ pub static CONFIG: LazyLock<Config> = LazyLock::new(|| {
     }
 
     let settings = builder
-        .add_source(config::Environment::with_prefix("KVS_"))
+        .add_source(config::Environment::with_prefix("KVS"))
         .build()
         .and_then(|c| c.try_deserialize::<Config>());
 

@@ -40,7 +40,7 @@ fn initialize_tracing(level: tracing::Level) {
     use tracing_subscriber::{filter::targets::Targets, prelude::*};
 
     let filter = Targets::default()
-        .with_target(env!("CARGO_PKG_NAME"), level)
+        .with_target(env!("CARGO_BIN_NAME"), level)
         .with_target("actix", level);
     let format = tracing_subscriber::fmt::layer().compact();
 
@@ -83,7 +83,7 @@ impl bb8::CustomizeConnection<pg::Client, pg::Error> for ConnectionCustomizer {
 async fn main() -> anyhow::Result<()> {
     initialize_tracing(tracing::Level::DEBUG);
 
-    tracing::info!("{}/{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"));
+    tracing::info!("{}/{}", env!("CARGO_BIN_NAME"), env!("CARGO_PKG_VERSION"));
 
     let manager = bb8_postgres::PostgresConnectionManager::new_from_stringlike(
         &CONFIG.db_connection,
