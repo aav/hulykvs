@@ -32,6 +32,6 @@ jobs:
         with:
           file: hulykvs_server/Dockerfile
           push: true
-          tags: "latest"
+          tags: "ghcr.io/aav/hulykvs"
 
 
